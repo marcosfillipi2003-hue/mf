@@ -31,3 +31,5 @@ Padrões que valem para TODAS as dentistas, salvos a pedido do cliente:
 - **Seção "Avaliações do Google"**: nota média + estrelas em SVG, total e depoimentos em cartões, botão "Ver todas no Google" (campo `google:{nota,total,url,depoimentos}`). Depoimentos/nota que faltam ficam como placeholder `[Depoimento do Google]`/`[nota]` — nunca inventar avaliação real. Total usa o número real levantado no Google Maps.
 - **Avaliações SOMENTE no site, NUNCA no link** (bio).
 - **Links externos** (WhatsApp, Instagram, Google, Maps) sempre `target="_blank" rel="noopener noreferrer"`. Âncoras internas permanecem na mesma aba.
+
+- **Efeitos (linhas decorativas da capa)**: usar só nos temas escuros/dourados; evitar nos claros/clean. Vale para o link.

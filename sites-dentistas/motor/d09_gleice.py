@@ -61,7 +61,7 @@ site_over = {
   "secoes":["sobre","procedimentos","avaliacoes","duvidas","local","posts"]
 }
 link_over = {
-  "produto":"link","efeitos":True,"nav":"esq","capa":"limpa","banners":"lado",
+  "produto":"link","efeitos":False,"nav":"esq","capa":"limpa","banners":"lado",
   "sobreLayout":"faixa","sobreLado":"esq","procLayout":"cartoes","faqLayout":"duas",
   "localLayout":"cartao","movimento":"subir",
   "secoes":["banners","retrato","procedimentos","passando","duvidas","local","posts"]
