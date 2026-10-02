@@ -65,6 +65,6 @@ link_over = {
   "produto":"link","efeitos":False,"nav":"centro","capa":"limpa","banners":"lado",
   "sobreLayout":"faixa","sobreLado":"esq","procLayout":"cartoes","faqLayout":"centro",
   "localLayout":"faixa","movimento":"fade",
-  "secoes":["banners","retrato","procedimentos","passando","duvidas","local","posts"]
+  "secoes":["banners","retrato","passando","local","posts"]
 }
 gen_pair("10-amanda", base, site_over, link_over, "Dra. Amanda Dias")

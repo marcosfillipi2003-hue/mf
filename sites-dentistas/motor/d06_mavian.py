@@ -64,6 +64,6 @@ link_over = {
   "produto":"link","efeitos":True,"nav":"esq","capa":"limpa","banners":"cheio",
   "sobreLayout":"livre","sobreLado":"esq","procLayout":"cartoes","faqLayout":"centro",
   "localLayout":"cartao","movimento":"subir",
-  "secoes":["banners","retrato","procedimentos","passando","duvidas","local","posts"]
+  "secoes":["banners","retrato","passando","local","posts"]
 }
 gen_pair("06-mavian", base, site_over, link_over, "Mavian Odontologia")

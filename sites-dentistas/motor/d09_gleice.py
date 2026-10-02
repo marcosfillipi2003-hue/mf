@@ -64,6 +64,6 @@ link_over = {
   "produto":"link","efeitos":False,"nav":"esq","capa":"limpa","banners":"lado",
   "sobreLayout":"faixa","sobreLado":"esq","procLayout":"cartoes","faqLayout":"duas",
   "localLayout":"cartao","movimento":"subir",
-  "secoes":["banners","retrato","procedimentos","passando","duvidas","local","posts"]
+  "secoes":["banners","retrato","passando","local","posts"]
 }
 gen_pair("09-gleice", base, site_over, link_over, "Dra. Gleice Gomes")

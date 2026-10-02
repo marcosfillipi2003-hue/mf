@@ -33,3 +33,5 @@ Padrões que valem para TODAS as dentistas, salvos a pedido do cliente:
 - **Links externos** (WhatsApp, Instagram, Google, Maps) sempre `target="_blank" rel="noopener noreferrer"`. Âncoras internas permanecem na mesma aba.
 
 - **Efeitos (linhas decorativas da capa)**: usar só nos temas escuros/dourados; evitar nos claros/clean. Vale para o link.
+
+- **Link da bio é enxuto (não é site)**: hero + botões + apresentação + algumas fotos + localização + Instagram. Sem FAQ e sem a lista detalhada de procedimentos. (Aplicado em Mavian, Gleice, Amanda, Lidiane.)
