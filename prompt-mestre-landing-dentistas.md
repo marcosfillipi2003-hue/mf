@@ -58,7 +58,7 @@ Crie uma seção nova `avaliacoes` (não existe na base — você vai construí-
 
 - Cabeçalho com **nota média** (ex.: 4,9), **estrelas** desenhadas em SVG/CSS (nada de emoji), e **nº total de avaliações** ("128 avaliações no Google").
 - **3 a 6 depoimentos** em cartões ou carrossel, cada um com: nome do paciente, estrelas, texto do depoimento e um selo/ícone "Google".
-- Botão "Ver todas no Google" apontando para o link do perfil no Google (campo `googleUrl`).
+- Botão "Ver todas no Google" apontando para o link do perfil no Google (campo `googleUrl`), **abrindo em aba nova** (`target="_blank" rel="noopener noreferrer"`).
 - Dados vêm do CONFIG: `google: { nota: '4,9', total: '128', url: '...', depoimentos: [ {nome, nota, texto}, ... ] }`.
 - Se eu **não** mandar os depoimentos, deixe placeholders **claramente marcados** `[Depoimento do Google]` para eu preencher — nunca invente avaliações reais (isso é proibido).
 - Visual integrado à paleta/tipografia do cliente, não um widget genérico.
@@ -77,7 +77,7 @@ Crie uma seção nova `avaliacoes` (não existe na base — você vai construí-
 - Código limpo, comentado em PT-BR, responsivo de verdade (testado mentalmente em 360px e 1440px).
 - Sem bibliotecas externas além das fontes do Google. JS puro.
 - Imagens: usar os placeholders elegantes da base quando não houver foto (`.ph`), e `<img class="foto">` quando eu fornecer caminho. Deixe os caminhos no `CONFIG.imagens` fáceis de trocar.
-- WhatsApp com `https://wa.me/<numero>?text=<msg>` e Instagram linkados.
+- **Links externos abrem em aba nova (obrigatório):** TODO link que leva para fora do site — **avaliação do Google** (botão "Ver no Google" e cartões, se clicáveis), **WhatsApp** (`https://wa.me/<numero>?text=<msg>`), **Instagram**, Google Maps e qualquer rede social — deve usar `target="_blank" rel="noopener noreferrer"`. Links internos de rolagem (âncoras `#secao`, menu do topo, "Ver fotos") **continuam na mesma aba**, sem `target="_blank"`.
 - A página tem que abrir sozinha num navegador, sem build.
 
 ### 6. Entrega
