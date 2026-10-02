@@ -47,6 +47,7 @@ base = {
   "convenios":["Particular","[Convênio 1]"],
   "parcelamento":"[X]",
   "local":{"endereco":"Rua Gonçalo Fernandes, 318, sala 601, Jardim Bela Vista, Santo André","horario":"Segunda a sexta, mediante agendamento","agendamento":"Por WhatsApp, com retorno no mesmo dia útil"},
+  "google":{"nota":"","total":"37","url":"","depoimentos":[]},
   "imagens":{"capa":"","retrato":"","sobre1":"","sobre2":"","banner1":"","banner2":"","post":""},
   "rodapeNota":"Material de demonstração para apresentação. As imagens são provisórias; a divulgação de casos clínicos segue a Resolução CFO 196/2019, com autorização do paciente."
 }
@@ -56,7 +57,7 @@ site_over = {
   "bannersLista":[{"linha":"Agende sua","destaque":"avaliação","acao":"whatsapp"}],
   "sobreLayout":"pilha","sobreLado":"esq","procLayout":"destaque","faqLayout":"duas",
   "localLayout":"cartao","movimento":"subir",
-  "secoes":["banners","sobre","procedimentos","duvidas","local","posts"]
+  "secoes":["banners","sobre","procedimentos","avaliacoes","duvidas","local","posts"]
 }
 link_over = {
   "produto":"link","efeitos":True,"nav":"esq","capa":"limpa","banners":"lado",

@@ -49,6 +49,7 @@ base = {
   "convenios":["Particular","[Convênio 1]","[Convênio 2]"],
   "parcelamento":"[X]",
   "local":{"endereco":"[Endereço da clínica], Diadema","horario":"Segunda a sábado, mediante agendamento","agendamento":"Por WhatsApp, com retorno no mesmo dia"},
+  "google":{"nota":"","total":"39","url":"","depoimentos":[]},
   "imagens":{"capa":"","retrato":"","sobre1":"","sobre2":"","banner1":"","banner2":"","post":""},
   "rodapeNota":"Demonstração para apresentação. Imagens provisórias nos espaços indicados; casos clínicos conforme a Resolução CFO 196/2019."
 }
@@ -57,7 +58,7 @@ site_over = {
   "produto":"site","efeitos":False,"nav":"esq","capa":"editorial","banners":"cheio",
   "sobreLayout":"livre","sobreLado":"esq","procLayout":"destaque","faqLayout":"centro",
   "localLayout":"cartao","movimento":"subir",
-  "secoes":["sobre","procedimentos","duvidas","local","posts"]
+  "secoes":["sobre","avaliacoes","procedimentos","duvidas","local","posts"]
 }
 link_over = {
   "produto":"link","efeitos":True,"nav":"esq","capa":"limpa","banners":"cheio",

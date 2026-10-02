@@ -624,6 +624,31 @@ body.tema-claro .mapa .pino,body.tema-claro .mapa-largo .pino{box-shadow:0 8px 1
 }
 </style>
 
+<style id="aval-css">
+/* ===== seção de Avaliações do Google (nota + estrelas SVG + depoimentos) ===== */
+.aval-topo{display:flex;justify-content:space-between;align-items:flex-end;gap:18px 28px;flex-wrap:wrap}
+.aval-resumo .eyebrow{margin-bottom:12px}
+.aval-media{display:flex;align-items:center;gap:13px}
+.aval-media .nota-num{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,7vw,3rem);line-height:1;color:var(--ink)}
+.estrelas{display:inline-flex;gap:3px}
+.estrela{width:20px;height:20px;color:var(--line);flex:none}
+.estrela.on{color:var(--accent)}
+.estrelas-min .estrela{width:15px;height:15px}
+.aval-total{font-size:.84rem;color:var(--muted);margin-top:10px}
+.aval-trilho{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-top:26px;padding-bottom:4px;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.aval-trilho::-webkit-scrollbar{display:none}
+.aval-card{flex:0 0 80%;scroll-snap-align:start;margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-grande);padding:22px 22px 20px;display:flex;flex-direction:column;gap:13px}
+.aval-card p{font-size:.95rem;line-height:1.62;color:var(--ink);margin:0}
+.aval-quem{display:flex;align-items:center;gap:10px;margin-top:auto}
+.aval-quem .g-ava{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#fff;border:1px solid var(--line);flex:none}
+.aval-quem b{font-weight:600;font-size:.9rem;color:var(--ink);display:block;line-height:1.25}
+.aval-quem .ava-src{font-size:.72rem;color:var(--muted);display:block}
+@media(min-width:900px){
+  body.site .aval-trilho{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;overflow:visible;scroll-snap-type:none}
+  body.site .aval-card{flex:none}
+}
+</style>
+
 <div id="raiz"></div>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Fotos do procedimento">
@@ -805,6 +830,12 @@ var CONFIG = {
     "horario": "Segunda a sexta, mediante agendamento",
     "agendamento": "Por WhatsApp, com retorno no mesmo dia útil"
   },
+  "google": {
+    "nota": "",
+    "total": "45",
+    "url": "",
+    "depoimentos": []
+  },
   "imagens": {
     "capa": "",
     "retrato": "",
@@ -898,7 +929,7 @@ var CONFIG = {
   }
   var SVG_WA='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.38-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2.5C6.78 2.5 2.5 6.78 2.5 12.04c0 1.68.44 3.32 1.28 4.77L2.5 21.5l4.83-1.25a9.5 9.5 0 0 0 4.71 1.24h.01c5.25 0 9.53-4.28 9.53-9.54 0-2.55-.99-4.94-2.79-6.74a9.47 9.47 0 0 0-6.75-2.71zm0 17.35h-.01a7.9 7.9 0 0 1-4.03-1.1l-.29-.17-2.99.78.8-2.91-.19-.3a7.88 7.88 0 0 1-1.21-4.21c0-4.37 3.56-7.92 7.93-7.92 2.12 0 4.1.83 5.6 2.33a7.86 7.86 0 0 1 2.32 5.6c0 4.37-3.56 7.92-7.93 7.92z"/></svg>';
   var SVG_IG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>';
-  var REDES='<div class="redes"><a href="'+IG+'" target="_blank" rel="noopener" aria-label="Instagram">'+SVG_IG+'</a><a href="'+WA+'" target="_blank" rel="noopener" aria-label="WhatsApp">'+SVG_WA+'</a></div>';
+  var REDES='<div class="redes"><a href="'+IG+'" target="_blank" rel="noopener noreferrer" aria-label="Instagram">'+SVG_IG+'</a><a href="'+WA+'" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">'+SVG_WA+'</a></div>';
 
   /* ---------- seções ---------- */
   function capa(){
@@ -909,7 +940,7 @@ var CONFIG = {
       return '<header class="capa cv-dividida" id="topo"><div class="miolo dv-grid">'+
         '<div class="dv-txt"><div class="esp">'+h(C.especialidades)+'</div><h1>'+h(C.nome)+'</h1>'+
         '<div class="cargo" style="margin-top:14px">'+h(C.cargo)+'</div>'+
-        '<div class="ctas"><a class="btn btn-solid" href="'+WA+'" target="_blank" rel="noopener">Agendar avaliação</a>'+
+        '<div class="ctas"><a class="btn btn-solid" href="'+WA+'" target="_blank" rel="noopener noreferrer">Agendar avaliação</a>'+
         '<a class="btn btn-ghost" href="#procedimentos">Ver procedimentos</a></div>'+REDES+'</div>'+
         '<div class="dv-foto">'+(im.capa?'<img class="foto" src="'+h(im.capa)+'" alt="'+h(C.nome)+'">':'<div class="foto ph ph-a" style="height:100%"><span><b>Foto</b>vertical</span></div>')+'</div>'+
         '</div></header>';
@@ -919,7 +950,7 @@ var CONFIG = {
       return '<header class="capa cv-editorial" id="topo"><div class="capa-media">'+fotoCapa+'</div>'+
         '<div class="ed-grid miolo"><div class="ed-txt"><div class="esp">'+h(C.especialidades)+'</div>'+
         '<h1>'+h(pn.join(' '))+' <em>'+h(ult)+'</em></h1><div class="cargo">'+h(C.cargo)+'</div>'+
-        '<div class="ctas"><a class="btn btn-solid" href="'+WA+'" target="_blank" rel="noopener">Agendar avaliação</a>'+
+        '<div class="ctas"><a class="btn btn-solid" href="'+WA+'" target="_blank" rel="noopener noreferrer">Agendar avaliação</a>'+
         '<a class="btn btn-ghost" href="#procedimentos">Ver procedimentos</a></div></div></div>'+
         '<div class="ed-lado" aria-hidden="true"><i></i><span>'+h(C.cidade)+'</span></div></header>';
     }
@@ -937,7 +968,7 @@ var CONFIG = {
     var recorte=C.banners==='recorte';
     var html=lista.map(function(b,i){
       var href=b.acao==='whatsapp'?WA:b.acao;
-      var ext=b.acao==='whatsapp'?' target="_blank" rel="noopener"':'';
+      var ext=b.acao==='whatsapp'?' target="_blank" rel="noopener noreferrer"':'';
       var inv=((C.banners!=='cheio') && i%2===1)?' inv':'';
       var cheio=C.banners==='cheio'?' cheio':'';
       var src=i===0?im.banner1:im.banner2;
@@ -1029,7 +1060,7 @@ var CONFIG = {
       '<div><dt>Endereço</dt><dd>'+h(L.endereco)+'</dd></div>'+
       '<div><dt>Horário</dt><dd>'+h(L.horario)+'</dd></div>'+
       '<div><dt>Agendamento</dt><dd>'+h(L.agendamento)+'</dd></div></dl>'+
-      '<a class="btn btn-solid" href="'+WA+'" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>';
+      '<a class="btn btn-solid" href="'+WA+'" target="_blank" rel="noopener noreferrer">Agendar pelo WhatsApp</a>';
     if(C.localLayout==='faixa'){
       return '<section class="local-faixa" id="local"><div class="mapa-largo ap"><div class="pino"></div></div>'+
         '<div class="local-flut local-info ap">'+info+'</div></section>';
@@ -1042,9 +1073,9 @@ var CONFIG = {
     return '<section class="posts" id="posts" style="padding-top:12px"><div class="miolo"><div class="rot ap">'+h(C.tituloPosts||'Posts')+'</div>'+
       '<div class="ig ap"><div class="ig-top"><span class="av">'+h(C.selo)+'</span>'+
       '<span class="quem"><b>'+h(C.instagram)+'</b><span class="sub">'+h(C.cidade)+'</span></span>'+
-      '<a href="'+IG+'" target="_blank" rel="noopener">Ver perfil</a></div>'+
+      '<a href="'+IG+'" target="_blank" rel="noopener noreferrer">Ver perfil</a></div>'+
       '<div class="ig-post">'+foto(im.post,'Último post','Publicação do Instagram',3)+'</div>'+
-      '<div class="ig-foot"><a href="'+IG+'" target="_blank" rel="noopener">Ver mais no Instagram</a></div></div></div></section>';
+      '<div class="ig-foot"><a href="'+IG+'" target="_blank" rel="noopener noreferrer">Ver mais no Instagram</a></div></div></div></section>';
   }
   function sobre(){
     var S=C.sobre||{}, im=C.imagens||{};
@@ -1052,7 +1083,7 @@ var CONFIG = {
     var textos=(S.textos||[]).map(function(t){return '<p class="ap">'+h(t)+'</p>';}).join('');
     var dest=(S.destaques||[]).length?'<div class="dests ap">'+S.destaques.map(function(d){
       return '<div class="dest"><b>'+h(d.t)+'</b><span>'+h(d.d)+'</span></div>';}).join('')+'</div>':'';
-    var cta='<a class="btn btn-solid ap" href="'+WA+'" target="_blank" rel="noopener">Agendar avaliação</a>';
+    var cta='<a class="btn btn-solid ap" href="'+WA+'" target="_blank" rel="noopener noreferrer">Agendar avaliação</a>';
     var inv=C.sobreLado==='dir'?' inv':'';
     if(lay==='livre'){
       return '<section class="sobre sb-livre" id="sobre"><div class="miolo"><div class="sbl-grid'+inv+'">'+
@@ -1070,8 +1101,40 @@ var CONFIG = {
       '<div class="p">'+foto(im.sobre2,'Detalhe','Consultório ou atendimento',2)+'</div></div>'+
       '<div class="sobre-txt"><div class="eyebrow ap">'+h(C.eySobre||'Quem somos')+'</div><h2 class="ap">'+h(S.titulo||'')+'</h2>'+textos+dest+cta+'</div></div></section>';
   }
-  var ROTULOS={sobre:'Quem somos',procedimentos:'Procedimentos',duvidas:'Dúvidas',local:'Onde estamos',posts:'Instagram'};
-  var BUILD={banners:banners,sobre:sobre,retrato:retrato,passando:passando,procedimentos:procedimentos,duvidas:duvidas,local:local,posts:posts};
+  var SVG_G='<svg viewBox="0 0 48 48" width="16" height="16" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>';
+  function estrelasSVG(n,cls){
+    var full=(n==null||isNaN(n))?5:Math.max(0,Math.min(5,Math.round(n)));
+    var s='';
+    for(var i=0;i<5;i++){ s+='<svg class="estrela'+(i<full?' on':'')+'" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.58 1.1 6.47L12 18.9l-5.8 3.06 1.1-6.47-4.7-4.58 6.5-.95z"/></svg>'; }
+    return '<span class="'+(cls||'estrelas')+'" role="img" aria-label="'+(n==null||isNaN(n)?'avaliação':String(n)+' de 5 estrelas')+'">'+s+'</span>';
+  }
+  function avaliacoes(){
+    var G=C.google||{};
+    var notaNum=parseFloat(String(G.nota||'').replace(',','.'));
+    var nota=G.nota||'[nota]';
+    var total=G.total?String(G.total):'[total]';
+    var deps=(G.depoimentos&&G.depoimentos.length)?G.depoimentos:[
+      {nome:'[Nome do paciente]',nota:'',texto:'[Depoimento do Google]'},
+      {nome:'[Nome do paciente]',nota:'',texto:'[Depoimento do Google]'},
+      {nome:'[Nome do paciente]',nota:'',texto:'[Depoimento do Google]'}];
+    var cards=deps.map(function(d){
+      var dn=parseFloat(String(d.nota||'').replace(',','.'));
+      return '<figure class="aval-card">'+estrelasSVG(isNaN(dn)?5:dn,'estrelas-min')+
+        '<p>'+h(d.texto||'[Depoimento do Google]')+'</p>'+
+        '<figcaption class="aval-quem"><span class="g-ava">'+SVG_G+'</span><span><b>'+h(d.nome||'[Nome]')+'</b>'+
+        '<span class="ava-src">Avaliação no Google</span></span></figcaption></figure>';
+    }).join('');
+    var btn=G.url?'<a class="btn btn-ghost" href="'+h(G.url)+'" target="_blank" rel="noopener noreferrer">Ver todas no Google</a>'
+                 :'<a class="btn btn-ghost" href="#avaliacoes" aria-disabled="true">Ver todas no Google [inserir link]</a>';
+    return '<section class="aval" id="avaliacoes"><div class="miolo">'+
+      '<div class="aval-topo ap"><div class="aval-resumo"><div class="eyebrow">Avaliações</div>'+
+        '<div class="aval-media"><span class="nota-num">'+h(nota)+'</span>'+estrelasSVG(notaNum,'estrelas')+'</div>'+
+        '<div class="aval-total">'+h(total)+' avaliações no Google</div></div>'+btn+'</div>'+
+      '<div class="aval-trilho ap">'+cards+'</div></div></section>';
+  }
+
+  var ROTULOS={sobre:'Quem somos',avaliacoes:'Avaliações',procedimentos:'Procedimentos',duvidas:'Dúvidas',local:'Onde estamos',posts:'Instagram'};
+  var BUILD={banners:banners,sobre:sobre,avaliacoes:avaliacoes,retrato:retrato,passando:passando,procedimentos:procedimentos,duvidas:duvidas,local:local,posts:posts};
 
   var partes=(C.secoes||[]).filter(function(s){return BUILD[s];});
   var nav=partes.filter(function(s){return ROTULOS[s];}).map(function(s){return '<a href="#'+s+'">'+ROTULOS[s]+'</a>';}).join('');
@@ -1079,8 +1142,8 @@ var CONFIG = {
   raiz.innerHTML=
     '<div class="abertura" aria-hidden="true"><div class="abertura-in"><div class="sel">'+h(C.selo)+'</div><small>'+h(C.nome)+'</small></div></div>'+
     '<div class="bar topo" id="bar"><nav>'+nav+'</nav><a class="marca" href="#topo"><span class="mono">'+h(C.selo)+'</span><b>'+h(C.nome)+'</b></a>'+
-    '<a class="btn-topo" href="'+WA+'" target="_blank" rel="noopener">Agendar</a></div>'+
-    '<a class="zap esconde" id="zap" href="'+WA+'" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">'+SVG_WA+'<span>Agendar avaliação</span></a>'+
+    '<a class="btn-topo" href="'+WA+'" target="_blank" rel="noopener noreferrer">Agendar</a></div>'+
+    '<a class="zap esconde" id="zap" href="'+WA+'" target="_blank" rel="noopener noreferrer" aria-label="Agendar pelo WhatsApp">'+SVG_WA+'<span>Agendar avaliação</span></a>'+
     '<div class="app">'+capa()+partes.map(function(s){return BUILD[s]();}).join('')+
     '<footer><div class="cro">'+h(C.nome)+' · '+h(C.cargo.split('·')[0].trim())+' · '+h(C.cro)+'</div>'+
     '<div>'+h(C.especialidades)+' · '+h(C.cidade)+'</div><div class="nota">'+h(C.rodapeNota)+'</div></footer></div>';

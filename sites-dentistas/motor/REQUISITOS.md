@@ -26,3 +26,8 @@ Padrões que valem para TODAS as dentistas, salvos a pedido do cliente:
 | 11 | Lidiane Rizzutto | lidianerizzutto | claro sage/madeira | classica | limpa | destaque | pilha | duas | cartao | subir |
 
 (3, 4, 7, 8 pendentes de print)
+
+## Atualizações (regras novas)
+- **Seção "Avaliações do Google"**: nota média + estrelas em SVG, total e depoimentos em cartões, botão "Ver todas no Google" (campo `google:{nota,total,url,depoimentos}`). Depoimentos/nota que faltam ficam como placeholder `[Depoimento do Google]`/`[nota]` — nunca inventar avaliação real. Total usa o número real levantado no Google Maps.
+- **Avaliações SOMENTE no site, NUNCA no link** (bio).
+- **Links externos** (WhatsApp, Instagram, Google, Maps) sempre `target="_blank" rel="noopener noreferrer"`. Âncoras internas permanecem na mesma aba.

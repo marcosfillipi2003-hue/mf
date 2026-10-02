@@ -49,6 +49,7 @@ base = {
   "convenios":["Particular","[Convênio 1]"],
   "parcelamento":"[X]",
   "local":{"endereco":"[Endereço do consultório], Mauá","horario":"Segunda a sábado, mediante agendamento","agendamento":"Por WhatsApp, com retorno no mesmo dia"},
+  "google":{"nota":"","total":"67","url":"","depoimentos":[]},
   "imagens":{"capa":"","retrato":"","sobre1":"","sobre2":"","banner1":"","banner2":"","post":""},
   "rodapeNota":"Demonstração para apresentação. As fotos reais entram nos espaços marcados; casos clínicos divulgados conforme a Resolução CFO 196/2019."
 }
@@ -57,7 +58,7 @@ site_over = {
   "produto":"site","efeitos":False,"nav":"centro","capa":"editorial","banners":"cheio",
   "sobreLayout":"livre","sobreLado":"dir","procLayout":"lista","faqLayout":"centro",
   "localLayout":"faixa","movimento":"lateral",
-  "secoes":["banners","sobre","procedimentos","duvidas","local","posts"]
+  "secoes":["banners","sobre","procedimentos","avaliacoes","duvidas","local","posts"]
 }
 link_over = {
   "produto":"link","efeitos":True,"nav":"centro","capa":"editorial","banners":"cheio",

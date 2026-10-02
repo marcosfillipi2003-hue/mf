@@ -49,6 +49,7 @@ base = {
   "convenios":["[Convênio 1]","[Convênio 2]","Particular"],
   "parcelamento":"[X]",
   "local":{"endereco":"[Endereço do consultório], área central de São Bernardo do Campo","horario":"Segunda a sexta, mediante agendamento","agendamento":"Por WhatsApp, com retorno no mesmo dia útil"},
+  "google":{"nota":"","total":"477","url":"","depoimentos":[]},
   "imagens":{"capa":"","retrato":"","sobre1":"","sobre2":"","banner1":"","banner2":"","post":""},
   "rodapeNota":"Página de demonstração para apresentação. Os espaços de imagem recebem fotos reais depois; a divulgação de casos clínicos segue a Resolução CFO 196/2019."
 }
@@ -57,7 +58,7 @@ site_over = {
   "produto":"site","efeitos":False,"nav":"esq","capa":"dividida","banners":"lado",
   "sobreLayout":"faixa","sobreLado":"esq","procLayout":"destaque","faqLayout":"duas",
   "localLayout":"cartao","movimento":"subir",
-  "secoes":["banners","sobre","procedimentos","duvidas","local","posts"]
+  "secoes":["banners","sobre","avaliacoes","procedimentos","duvidas","local","posts"]
 }
 link_over = {
   "produto":"link","efeitos":True,"nav":"esq","capa":"limpa","banners":"lado",

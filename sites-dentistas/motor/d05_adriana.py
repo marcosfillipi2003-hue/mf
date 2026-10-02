@@ -49,6 +49,7 @@ base = {
   "convenios":["Particular","[Convênio 1]"],
   "parcelamento":"[X]",
   "local":{"endereco":"Rua Rossini, 37 (confirmar), Diadema","horario":"Segunda a sexta, mediante agendamento","agendamento":"Por WhatsApp, com retorno no mesmo dia útil"},
+  "google":{"nota":"","total":"45","url":"","depoimentos":[]},
   "imagens":{"capa":"","retrato":"","sobre1":"","sobre2":"","banner1":"","banner2":"","post":""},
   "rodapeNota":"Modelo de apresentação. As imagens são provisórias e a divulgação de resultados segue a Resolução CFO 196/2019, com autorização do paciente."
 }
@@ -57,7 +58,7 @@ site_over = {
   "produto":"site","efeitos":False,"nav":"esq","capa":"editorial","banners":"lado",
   "sobreLayout":"pilha","sobreLado":"dir","procLayout":"cartoes","faqLayout":"duas",
   "localLayout":"faixa","movimento":"fade",
-  "secoes":["sobre","procedimentos","duvidas","local","posts"]
+  "secoes":["sobre","procedimentos","avaliacoes","duvidas","local","posts"]
 }
 link_over = {
   "produto":"link","efeitos":True,"nav":"esq","capa":"editorial","banners":"lado",
